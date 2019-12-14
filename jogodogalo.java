@@ -4,20 +4,32 @@ import java.util.Scanner;
 		public static void main(String[] args){
 			Scanner notas= new Scanner(System.in);
 			int g=0;
-			char[] galo=new char[]{'0','1','2','3','4','5','6','7','8','i'};
+			char[] galo=new char[]{'1','2','3','4','5','6','7','8','9','i'};
+			String player1, player2; 
 			
 			System.out.print("JOGO DO GALO\n\n");
+			
+			System.out.print("Nome do player 1: ");//nome dos jogadores 
+			player1=notas.nextLine();
+			System.out.print("Nome do player 2: ");
+			player2=notas.nextLine();
+
+
 			System.out.printf("%s  |  %s  |  %s\n", galo[0], galo[1], galo[2]);
 			System.out.print("______________\n");
 			System.out.printf("\n%s  |  %s  |  %s\n", galo[3], galo[4], galo[5]);
 			System.out.print("______________\n");
 			System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
-			System.out.print("\nPrimeiro as bolas, depois as cruzes, escolha uma posição\n");
+			
+			System.out.print("\nPrimeiro as bolas, depois as cruzes, escolha uma posição(número de 1 a 9):  ");
+			
 			int op= notas.nextInt();
-			while(g<9){
+			
+			while(victory(galo)==0){
+			
 				switch(op){
-					case 0:
-						if(galo[0] != '0'){
+					case 1:
+						if(galo[0] != '1'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[0]= 'o';
@@ -29,8 +41,8 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 						break;
-					case 1:
-						if(galo[1] != '1'){
+					case 2:
+						if(galo[1] != '2'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							
 							break;}
@@ -44,8 +56,8 @@ import java.util.Scanner;
 						g++;
 						
 					break;
-					case 2:
-						if(galo[2]!= '2'){
+					case 3:
+						if(galo[2]!= '3'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[2]= 'o';
@@ -57,8 +69,8 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 					break;
-					case 3:
-						if(galo[3]!= '3'){
+					case 4:
+						if(galo[3]!= '4'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[3]= 'o';
@@ -70,8 +82,8 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 					break;
-					case 4:
-						if(galo[4]!= '4'){
+					case 5:
+						if(galo[4]!= '5'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[4]= 'o';
@@ -83,8 +95,8 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 					break;
-					case 5:
-						if(galo[5]!= '5'){
+					case 6:
+						if(galo[5]!= '6'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[5]= 'o';
@@ -96,11 +108,11 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 					break;
-					case 6:
-						if(galo[6]!= '6'){
+					case 7:
+						if(galo[6]!= '7'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
-						else if((op%2)==0){galo[6]= 'o';
+						else if((g%2)==0){galo[6]= 'o';
 						}else{galo[6]= 'x';}
 						System.out.printf("%s  |  %s  |  %s\n", galo[0], galo[1], galo[2]);
 						System.out.print("______________\n");
@@ -109,8 +121,8 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 					break;
-					case 7:
-						if(galo[7]!= '7'){
+					case 8:
+						if(galo[7]!= '8'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[7]= 'o';
@@ -122,8 +134,8 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
 						g++;
 					break;
-					case 8:
-						if(galo[8]!= '8'){
+					case 9:
+						if(galo[8]!= '9'){
 							System.out.print("Já jogou nesta posição escolha outro sítio:");
 							break;}
 						else if((g%2)==0){galo[8]= 'o';
@@ -142,17 +154,21 @@ import java.util.Scanner;
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[3], galo[4], galo[5]);
 						System.out.print("______________\n");
 						System.out.printf("\n%s  |  %s  |  %s\n", galo[6], galo[7], galo[8]);
+						System.out.print("Joga direito idiota:");
 					break;}
-					System.out.print("\nAgora o adversário:  ");
+					if(victory(galo)==1)break;
+					if(op>0&& op<=9) System.out.print("\nAgora o adversário:  ");
 					op=notas.nextInt();
 			}
+			if(g%2==1){System.out.printf("Parabéns %s", player1);}
+			else{System.out.printf("Parabéns %s", player2);}
 		}
-		//public int victory(char[] galo){
-			//int a=0;
-			//if(galo[0]==galo[1]==galo[2] || galo[3]== galo[4]== galo[5] ||  galo[6]== galo[7]==galo[8] ||galo[0]== galo[4]== galo[8] ||galo[2]== galo[4]== galo[6] || galo[0]== galo[3]== galo[6] ||galo[1]== galo[4]== galo[7] ||galo[2]== galo[5]== galo[8]){
-				//a=1;}
-			//return a;
-		//}
+		public static int victory(char[] galo){
+			int a=0;
+			if((galo[0]==galo[1]&& galo[1]==galo[2]) || (galo[3]== galo[4]&& galo[4] == galo[5]) ||  (galo[6]== galo[7]&& galo[7]==galo[8]) ||(galo[0]== galo[4] && galo[4]== galo[8]) ||(galo[2]== galo[4] && galo[4]== galo[6] )||( galo[0]== galo[3]&& galo[3] == galo[6]) ||(galo[1]== galo[4]&& galo[4]== galo[7]) ||(galo[2]== galo[5]&& galo[5]== galo[8])){
+				a=1;}
+			return a;
+		}
 	
 }
 
